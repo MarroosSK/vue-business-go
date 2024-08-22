@@ -12,6 +12,7 @@ import MapSection from '@/components/business-sections/MapSection.vue'
 import RatingSection from '@/components/business-sections/RatingSection.vue'
 import ReviewsSection from '@/components/business-sections/ReviewsSection.vue'
 import type { ReviewsDataI } from '@/types'
+import { Loader2 } from 'lucide-vue-next'
 
 const businessData = ref<any | null>(null)
 const reviewsData = ref<ReviewsDataI>()
@@ -64,5 +65,7 @@ onMounted(async () => {
       <ReviewsSection :reviewsData="reviewsData" />
     </div>
   </div>
-  <div v-else>Loading...</div>
+  <div v-else class="flex items-center justify-center h-screen mx-auto">
+    <Loader2 class="animate-spin" />
+  </div>
 </template>

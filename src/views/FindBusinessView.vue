@@ -3,6 +3,7 @@ import { reactive, ref } from 'vue'
 import { getBusinesses } from '@/actions/get-businesses'
 import SearchBusiness from '@/components/SearchBusiness.vue'
 import BusinessList from '@/components/BusinessList.vue'
+import { Loader2 } from 'lucide-vue-next'
 
 const searchData = reactive({ term: '', location: '' })
 
@@ -38,7 +39,7 @@ const handleSubmit = async () => {
     />
 
     <div v-if="isLoading" class="flex items-center justify-center py-10 text-[#15256b] text-lg">
-      Loading...
+      <Loader2 class="animate-spin" />
     </div>
 
     <div v-if="!isLoading && businesses.length">
